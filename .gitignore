@@ -11,7 +11,7 @@ data/
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
-.ideal/
+.idea/
 
 # Netbeans
 nbproject/
