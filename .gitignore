@@ -4,6 +4,7 @@
 
 # Application
 web/app
+web/public
 data/
 
 # PHPStorm
