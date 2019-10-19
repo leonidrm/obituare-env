@@ -9,7 +9,7 @@ server {
 
     access_log /var/log/nginx/access.log;
 
-    root /var/www/html/public;
+    root /var/www/html;
 
 #	location ~ \.php$ {
 #

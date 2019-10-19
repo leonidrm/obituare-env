@@ -51,7 +51,6 @@ docker-start: init
 
 docker-stop:
 	@docker-compose down -v
-	@make clean
 
 gen-certs:
 	@docker run --rm -v $(shell pwd)/etc/ssl:/certificates -e "SERVER=$(NGINX_HOST)" jacoelho/generate-certificate
