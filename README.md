@@ -2,6 +2,51 @@
 
 Docker running Nginx, PHP-FPM, Composer, MySQL and PHPMyAdmin.
 
+## Setup the Environment
+
+1. Go to disc C (windows) or home dir for Linux and MAC
+
+2. ``$ mkdir dev``
+
+3. ``$ cd dev``
+
+4. ``$ git clone git@github.com:leonidrm/obituare-env.git .``
+
+5. ``$ docker-compose up -d``
+
+6. ``$ cd web/public/``
+
+7. Git clone site structure
+
+8. Upload Database dump into docker container. Change dump location according to the place it was saved in your machine  
+``$ docker exec -i mysql mysql -uroot -proot obituare < ~/Downloads/obituare.sql``
+9. Edit your hosts by adding following line:
+``127.0.0.1 obituare.local``
+10. Enter in phpmyadmin:
+``http://obituare.local:8080``
+11. Credentials are:
+    Host: mysql
+    Username: root
+    Password: root
+12. Find database obituare and table wp-options and change site-url to ``http://obituare.local:8000``
+
+13. Go to your project in Sublime or PHPstorm and edit following file by entering proper DB credentials:
+    ``web/public/local.wp-config.php`` 
+    ``host: mysql``
+    ``database: obituare``
+    ``username: root``
+    ``password: root``
+14. Edit CI file by entering proper DB credentials:
+``web/public/ci/application/config/local.database``
+    ``host: mysql``
+    ``database: obituare``
+    ``username: root``
+    ``password: root``
+    ``dbdriver: mysqli``
+15. Edit CI file:
+    ``web/public/ci/application/config/local.config.php``
+    ``$config['base_url'] = 'http://obituare.local:8000/';``
+
 ## Overview
 
 1. [Install prerequisites](#install-prerequisites)
